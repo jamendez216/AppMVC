@@ -222,7 +222,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50105</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50105/</IISUrl>
+          <IISUrl>http://localhost:50100/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
