@@ -9,12 +9,9 @@ using AppMVC.Models;
 
 namespace AppMVC.Controllers
 {
-   
     public class HomeController : Controller
     {
-
         PruebaDbContext db = new PruebaDbContext();
-
         public ActionResult Index(Usuarios usu)
         {
                 if (Session["RoleID"] == null)
@@ -25,10 +22,10 @@ namespace AppMVC.Controllers
                 return RedirectToAction("Index", "Home");
 
         }
+
         [HttpPost]        
         public ActionResult login(Usuarios usu)
         {
-            
             var creds = db.Usuarios.FirstOrDefault(x => x.UserName == usu.UserName && x.passwd == usu.passwd);
             if (creds != null)
             {
@@ -41,20 +38,16 @@ namespace AppMVC.Controllers
                 Session["LogAlert"] = "Valid";
                 return RedirectToAction("UsuariosIndex", "Usuarios");
             }
-
             Session["LogAlert"] = "invalid";            
             return RedirectToAction("Index","Home");
-            
         }
+
         [Route("Home/logout")]
-        
         public ActionResult logout()
         {
             Session.Abandon();
             
             return RedirectToAction("Index");
         }
-
-      
     }
 }
