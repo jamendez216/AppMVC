@@ -1,0 +1,48 @@
+﻿@model AppMVC.Models.Role
+
+@{
+    ViewBag.Title = "DeleteRoles";
+}
+
+<h2>DeleteRoles</h2>
+
+<h3>Seguro que quiere borrar?</h3>
+<div>
+    <h4>Role</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario_transaccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario_transaccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_transaccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_transaccion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "RoleIndex")
+        </div>
+    }
+</div>

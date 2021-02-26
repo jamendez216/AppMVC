@@ -1,0 +1,57 @@
+﻿@model List<AppMVC.Models.Role>
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Usuarios", "Index", "Usuarios/UsuariosIndex")</li>
+        <li>@Html.ActionLink("Roles", "Index", "Roles/RoleIndex")</li>
+    </ul>
+</div>
+@{
+    ViewBag.Title = "Roles Index";
+}
+<h2>Roles</h2>
+
+<div>Mostrando Roles: </div>
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id Del rol</th>
+                <th>Nombre del Rol</th>
+                <th>Usuario Transaccion</th>
+                <th>Fecha Transaccion</th>
+                <th><div class="btn">
+                 <a href="/Roles/CreateRole">Create</a></div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                    @item.ID
+                    </td>
+                    <td>
+                        <a href="/Roles/EditRole/@item.ID">@item.Nombre</a>  
+                    </td>
+                    <td>
+                        @item.Usuario_transaccion
+                    </td>
+                    <td>
+                    @item.fecha_transaccion
+                    </td>
+                    <td>
+                        
+                        <div class="btn">
+                           <a href="/Roles/EditRole/@item.ID">Edit</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+
+        </tbody>
+
+
+</table>
+
+

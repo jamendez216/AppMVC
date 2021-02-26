@@ -1,0 +1,129 @@
+﻿@model List<AppMVC.Models.Usuarios>
+
+
+@{
+    ViewBag.Title = "Usuarios";
+}
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Usuarios", "Index", "Usuarios/UsuariosIndex")</li>
+        <li>@Html.ActionLink("Roles", "Index", "Roles/RoleIndex")</li>
+        
+    </ul>
+</div>
+
+<h2>Usuarios</h2>
+
+<div>Mostrando  Usuarios: </div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>UserName</th>
+            <th>Cedula</th>
+            <th>Fecha de nacimiento</th>
+            <th>rol</th>
+            <th>Creador</th>
+            <th>fecha de creacion</th>
+            <th>
+                @{ 
+                    string user = Convert.ToString(Session["Username"]);
+                    int id = Convert.ToInt32(Session["RoleID"]);
+                    if ( id == 1 || id ==4)
+                    {
+                        <div class="btn-default">
+                            @Html.ActionLink("Create", "CreateUser")
+                        </div>
+                    }
+                    else
+                    {
+                        <div>Crear(Solo admins)</div>
+                    }
+
+                   }
+                    </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+
+                <tr>
+                    <td>
+                        @{ 
+                            string usu = Convert.ToString(Session["Username"]);
+                            int rol = Convert.ToInt32(Session["RoleID"]);
+                            if (rol == 1 || usu == item.UserName)
+                            {
+                                <a href="/Usuarios/EditUser/@item.Id">@item.Id</a> }
+                            else
+                            {
+                                <span>@item.Id</span>
+                            }
+                        }
+                    </td>
+                    <td>
+                        @item.Nombre
+                    </td>
+                    <td>
+                        @item.Apellidos
+                    </td>
+                    <td>
+                        @item.UserName
+                    </td>
+                    <td>
+
+                        @item.Cedula
+                    </td>
+                    <td>
+                        @item.Fecha_Nacimiento
+                    </td>
+                    <td>
+                        @item.role.Nombre
+                    </td>
+                    <td>
+                        @item.Usuario_Transaccion
+                    </td>
+                    <td>
+                        @item.Fecha_Transaccion
+                    </td>
+                    <td>
+                        <div class="text-uppercase">
+
+                            @{
+                                string us = Convert.ToString(Session["Username"]);
+                                int rl = Convert.ToInt32(Session["RoleID"]);
+                                if ( rl == 1 )
+                                {
+                                    <a href="DeleteUser/@item.Id" onclick="return confirm('Seguro?')"> Delete</a>
+                                }
+                                else
+                                {
+                                    <div></div>
+                                }
+                            }
+
+
+                        </div>
+
+
+
+                    </td>
+
+
+                </tr>
+
+
+        }
+
+
+    </tbody>
+
+
+</table>
+
+
