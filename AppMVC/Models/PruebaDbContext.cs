@@ -8,11 +8,11 @@ namespace AppMVC.Models
 {
     public class PruebaDbContext : DbContext
     {
-            public PruebaDbContext()
-                : base("name=MVCDb")
-            {
-            }
-            public DbSet<Usuarios> Usuarios { get; set; }
-            public DbSet<Role> roles { get; set; }
+        public PruebaDbContext() : base("name=MVCDb")
+        {
+
+        }
+        public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<Role> roles { get; set; }
     }
 }

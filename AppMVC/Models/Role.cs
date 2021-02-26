@@ -11,20 +11,11 @@ namespace AppMVC.Models
     [Table("Roles")]
     public class Role
     {
-
-
         public int ID { get; set; }
-
         [Required]
         [StringLength(60)]
         public string Nombre { get; set; }
-
         public string Usuario_transaccion { get; set; }
-
         public DateTime? fecha_transaccion { get; set; }
-
-        
-
-
     }
 }

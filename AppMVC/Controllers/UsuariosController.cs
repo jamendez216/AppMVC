@@ -23,12 +23,14 @@ namespace AppMVC.Controllers
                 return View(model);
             }
             return RedirectToAction("Index", "Home");
-        }        
+        }
+
         [HttpPost]
         public ActionResult verify(Usuarios usu)
         {           
             return RedirectToAction("Index", "Home");
         }
+
         [Route("CreateUser")]
         public ActionResult CreateUser()
         {
@@ -41,6 +43,7 @@ namespace AppMVC.Controllers
             }
             return RedirectToAction("UsuariosIndex");
         }
+
         [HttpPost]
         public ActionResult CreateUser([Bind(Include = "Id, RoleId, Nombre, Apellidos, Cedula, UserName, passwd, Fecha_Nacimiento, Usuario_Transaccion, Fecha_Transaccion")]Usuarios usuario)
         {
@@ -71,6 +74,7 @@ namespace AppMVC.Controllers
             }
             return View();
         }
+
         [Route("EditUser")]        
         public ActionResult EditUser(int? Id)
         {
@@ -91,6 +95,7 @@ namespace AppMVC.Controllers
             }
             return RedirectToAction("UsuariosIndex");          
         }
+
         [HttpPost]
         public ActionResult EditUser([Bind(Include = "Id, RoleId, Nombre, Apellidos, Cedula, UserName, passwd, Fecha_Nacimiento, Usuario_Transaccion, Fecha_Transaccion")]Usuarios usuario)
         {
@@ -107,7 +112,8 @@ namespace AppMVC.Controllers
             }
             return View();
         }
-       [Route("DeleteUser/{Id}")]       
+
+        [Route("DeleteUser/{Id}")]       
         public ActionResult DeleteUser(int Id)
         {
             int rl = Convert.ToInt32(Session["RoleID"]);
